@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Week3-task1</title>
+  <!-- Import Styles -->
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <div class="nav-bar"></div>
+
+  <div id="app">
+    <div class="cart">
+      <p>Cart({{ cart.length }})</p>
+    </div>
+    <product 
+    :premium="premium" 
+    @add-to-cart="updateCart"
+    @remove-from-cart="removeFromCart" 
+    ></product> <!-- Task 9 Challenge-->
+  </div>
+  <!-- Import Js -->
+  <script src="main.js"></script>
+</body>
+
+</html>
