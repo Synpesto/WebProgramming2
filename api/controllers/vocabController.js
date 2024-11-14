@@ -10,16 +10,16 @@ exports.list_all_words = (req, res) => {
 
 exports.create_a_word = (req, res) => {
     const newWord = new Vocab(req.body);
-    newWord.save((err, words) =>{
+    newWord.save((err, word) =>{
         if (err) res.send(err)
-        res.json(words)
+        res.json(word)
     })
 }
 
 exports.read_a_word = (req, res) => {
-    Vocab.findById(req.params.wordId, (err, words) => {
+    Vocab.findById(req.params.wordId, (err, word) => {
         if (err) res.send(err)
-        res.json(words)
+        res.json(word)
     })
 }
 
@@ -28,9 +28,9 @@ exports.update_a_word = (req, res) => {
         {_id: req.params.wordId},
         req.body,
         { new: true },
-        (err, words) =>{
+        (err, word) =>{
             if (err) res.send(err)
-        res.json(words)
+        res.json(word)
     })
 }
 
