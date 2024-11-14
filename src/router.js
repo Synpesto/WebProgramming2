@@ -5,6 +5,7 @@ import MyWords from './views/MyWords.vue'
 import NewWord from './views/NewWord.vue'
 import ShowWord from './views/ShowWord.vue'
 import TestWord from './views/TestWord.vue'
+import AboutMe from './views/AboutMe.vue'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
             path: '/test',
             name: 'test',
             component: TestWord
+        },
+        {
+            path: '/aboutme',
+            name: 'aboutme',
+            component: AboutMe
         }
     ]
 })
