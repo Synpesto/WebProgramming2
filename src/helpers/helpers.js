@@ -36,7 +36,8 @@ export const api = {
         return res.data
     }),
     updateWord: handleError(async payload => {
-        const res = await axios.put(BASE_URL + payload.id, payload)
+        console.log(payload._id)
+        const res = await axios.put(BASE_URL + payload._id, payload)
         return res.data
     })
 }

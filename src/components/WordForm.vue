@@ -39,7 +39,8 @@ export default {
   },
   data() {
     return {
-      localWord: { ...this.word }, // create a local copy of the word prop
+      // localWord: { ...this.word }, // create a local copy of the word prop
+      localWord: this.word , // create a local copy of the word prop
       errorsPresent: false
     };
   },

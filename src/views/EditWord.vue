@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="this.word != '' ">
         <h1>Edit Word</h1>
         <word-form @createOrUpdate="createOrUpdate" :word=this.word></word-form>
     </div>
@@ -21,6 +21,7 @@ export default {
     },
     async mounted() {
         this.word = await api.getWord(this.$route.params.id)
+        console.log(this.word);
     },
     methods:
     {
