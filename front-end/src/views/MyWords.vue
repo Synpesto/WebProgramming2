@@ -1,10 +1,11 @@
 <template>
     <div>
         <h1>Words</h1>
-        <div>
-            <i>Search Word: </i>
-            <input type="text" v-model="keyword" placeholder="Search words..." />
+        <div class="ui icon input">
+            <input type="text" v-model="keyword" placeholder="Search...">
+            <i class="search icon"></i>
         </div>
+        
         <table id="words" class= "ui celled compact table">
             <thead>
                 <tr>

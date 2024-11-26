@@ -1,32 +1,37 @@
 <template>
-    <div>
-      <h1>Test</h1>
-  
-      <div v-if="words.length < 5">
-        <p>You need to enter at least five words to begin the test</p>
-      </div>
-      <div v-else>
-        <vocab-test :words="words"></vocab-test>
-      </div>
+  <div>
+    <h1>Test</h1>
+
+    <div v-if="words.length < 5">
+      <p>You need to enter at least five words to begin the test</p>
     </div>
-  </template>
-  
-  <script>
-  import { api } from '../helpers/helpers';
-  import VocabTest from '../components/VocabTest.vue';
-  
-  export default {
-    name: 'TestWord',
-    components: {
-      'vocab-test': VocabTest
-    },
-    data() {
-      return {
-        words: []
-      };
-    },
-    async mounted() {
-      this.words = await api.getWords();
-    }
-  };
-  </script>
+    <div v-else-if="vietnameseWords.length < words.length">
+      <p>You need to enter all words from each language to begin the test</p>
+    </div>
+    <div v-else>
+      <vocab-test :words="words"></vocab-test>
+    </div>
+  </div>
+</template>
+
+<script>
+import { api } from '../helpers/helpers';
+import VocabTest from '../components/VocabTest.vue';
+
+export default {
+  name: 'TestWord',
+  components: {
+    'vocab-test': VocabTest
+  },
+  data() {
+    return {
+      words: [],
+      vietnameseWords: []
+    };
+  },
+  async mounted() {
+    this.words = await api.getWords();
+    this.vietnameseWords = this.words.filter(word => word.vietnamese);
+  }
+};
+</script>

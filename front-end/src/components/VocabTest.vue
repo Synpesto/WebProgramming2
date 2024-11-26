@@ -15,6 +15,12 @@
           </div>
           <input type="text" placeholder="Enter word..." v-model="english" :disabled="testOver" autocomplete="off" />
         </div>
+        <div class="ui labeled input fluid">
+          <div class="ui label">
+            <i class="vietnam flag"></i> Vietnamese
+          </div>
+          <input type="text" placeholder="Enter word..." v-model="vietnamese" :disabled="testOver" autocomplete="off" />
+        </div>
   
         <button class="positive ui button" :disabled="testOver">Submit</button>
       </form>
@@ -41,6 +47,7 @@
         result: '',
         resultClass: '',
         english: '',
+        vietnamese: '',
         score: 0,
         testOver: false
       };
@@ -52,7 +59,7 @@
     },
     methods: {
       onSubmit: function() {
-        if (this.english === this.currWord.english) {
+        if (this.english === this.currWord.english && this.vietnamese === this.currWord.vietnamese) {
           this.flash('Correct!', 'success', { timeout: 1000 });
           this.score += 1;
         } else {
@@ -61,6 +68,7 @@
         }
   
         this.english = '';
+        this.vietnamese = '';
         this.randWords.shift();
   
         if (this.randWords.length === 0) {
