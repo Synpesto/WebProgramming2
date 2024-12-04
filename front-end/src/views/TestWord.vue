@@ -5,9 +5,6 @@
     <div v-if="words.length < 5">
       <p>You need to enter at least five words to begin the test</p>
     </div>
-    <div v-else-if="vietnameseWords.length < words.length">
-      <p>You need to enter all words from each language to begin the test</p>
-    </div>
     <div v-else>
       <vocab-test :words="words"></vocab-test>
     </div>
@@ -31,7 +28,6 @@ export default {
   },
   async mounted() {
     this.words = await api.getWords();
-    this.vietnameseWords = this.words.filter(word => word.vietnamese);
   }
 };
 </script>
