@@ -26,7 +26,7 @@
                 <td width="75" class="center aligned">
                     <router-link :to="{ name: 'edit', params: { id: word._id }}">Edit</router-link></td>
                 <td width="75" class="center aligned" @click.prevent="onDelete(word._id)">
-                    <a :href="`/words/${word._id}`">Delete</a></td>
+                    <a style="color: red" :href="`/words/${word._id}`">Delete</a></td>
             </tr>
         </table>
     </div>
@@ -60,10 +60,10 @@ export default {
             return (
                 word.english.toLowerCase().includes(searchKeyword) ||
                 word.german.toLowerCase().includes(searchKeyword) ||
-                (word.vietnamese && word.vietnamese.toLowerCase().includes(searchKeyword))
-            );
-        });
-         }
+                word.vietnamese.toLowerCase().includes(searchKeyword)
+            )
+        })
+        }
     },
     async mounted() {
         this.words = await api.getWords();
