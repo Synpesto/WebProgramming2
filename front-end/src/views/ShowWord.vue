@@ -23,7 +23,7 @@
         <input type="text" readonly  :value="word.vietnamese"/>
       </div>
     
-      <div class="actions">
+      <div class="ui button right floated">
         <router-link :to="{ name: 'edit', params: { id: this.$route.params.id }}">
           Edit word
         </router-link>
