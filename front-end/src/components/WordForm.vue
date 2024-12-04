@@ -39,14 +39,12 @@ export default {
         return {
           english: '',
           german: '',
-          // vietnamese: ''
         }
       }
     }
   },
   data() {
     return {
-      // localWord: { ...this.word }, // create a local copy of the word prop
       localWord: this.word , // create a local copy of the word prop
       errorsPresent: false,
       showVietnamese: false,
@@ -54,9 +52,6 @@ export default {
   },
   methods: {
     onSubmit: function() {
-    //   console.log(`English: ${this.localWord.english}`);
-    //   console.log(`German: ${this.localWord.german}`);
-
         if (this.localWord.english === '' || this.localWord.german === '' || this.localWord.vietnamese === '') {
             this.errorsPresent = true;
             } else {

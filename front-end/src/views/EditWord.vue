@@ -21,7 +21,7 @@ export default {
     },
     async mounted() {
         this.word = await api.getWord(this.$route.params.id)
-        console.log(this.word);
+        // console.log(this.word);
     },
     methods:
     {
